@@ -18,6 +18,7 @@ public class CurrentSlot  {
 		currentSlot = slotLabel;
 		c.notifyObservers();
 		c.addObserver(slotLabel);
+		
 	}
 
 	public void setWhite() {

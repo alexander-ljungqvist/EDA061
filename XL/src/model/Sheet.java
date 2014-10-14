@@ -7,14 +7,18 @@ import java.util.Set;
 
 import util.XLException;
 import expr.*;
+import gui.Controller;
 
-public class Sheet extends Observable implements Environment {
+public class Sheet implements Environment {
 	SlotFactory factory;
 	HashMap<String, Slot> sheet;
+	Controller c;
 
-	public Sheet() {
+	public Sheet(Controller c) {
 		this.sheet = new HashMap<String, Slot>();
 		factory = new SlotFactory();
+		this.c = c;
+		
 	}
 
 	public Sheet(HashMap<String, Slot> sheet) {
@@ -97,12 +101,10 @@ public class Sheet extends Observable implements Environment {
 	}
 
 	public void updateSheet() {
-		setChanged();
-		notifyObservers();
+		c.notifyObservers();
 	}
 
 	public Set<Entry<String, Slot>> getEntries() {
 		return sheet.entrySet();
 	}
 }
-//testcommit

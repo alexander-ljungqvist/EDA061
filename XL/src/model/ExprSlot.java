@@ -14,12 +14,16 @@ public class ExprSlot implements Slot {
 		return expr.value(e);
 	}
 
-	public String parse(Environment e) {
-		return new Double(getValue(e)).toString();
+	@Override
+	public String toString(Environment env) {
+		// TODO Auto-generated method stub
+		return expr.toString();
 	}
 
-	public String toString(Environment e) {
-		return expr.toString();
+	
+	public String representation(Environment env) {
+		// TODO Auto-generated method stub
+		return Double.toString(getValue(env));
 	}
 
 }
