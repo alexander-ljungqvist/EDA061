@@ -12,50 +12,51 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class XL extends JFrame implements Printable {
-    private static final int ROWS = 10, COLUMNS = 8;
-    private XLCounter counter;
-    private StatusLabel statusLabel = new StatusLabel();
-    private XLList xlList;
+	private static final int ROWS = 10, COLUMNS = 8;
+	private XLCounter counter;
+	private StatusLabel statusLabel = new StatusLabel();
+	private XLList xlList;
 
-    public XL(XL oldXL) {
-        this(oldXL.xlList, oldXL.counter);
-    }
+	public XL(XL oldXL) {
+		this(oldXL.xlList, oldXL.counter);
+	}
 
-    public XL(XLList xlList, XLCounter counter) {
-        super("Untitled-" + counter);
-        this.xlList = xlList;
-        this.counter = counter;
-        xlList.add(this);
-        counter.increment();
-        CurrentSlot c = new CurrentSlot();
-        JPanel statusPanel = new StatusPanel(statusLabel);
-        JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, c);
-        Editor editor = new Editor();
-        add(NORTH, statusPanel);
-        add(CENTER, editor);
-        add(SOUTH, sheetPanel);
-        setJMenuBar(new XLMenuBar(this, xlList, statusLabel));
-        pack();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
-    }
+	public XL(XLList xlList, XLCounter counter) {
+		super("Untitled-" + counter);
+		this.xlList = xlList;
+		this.counter = counter;
+		xlList.add(this);
+		counter.increment();
+		Controller c = new Controller();
+		CurrentSlot cs = new CurrentSlot(c);
+		JPanel statusPanel = new StatusPanel(statusLabel, cs, c);
+		JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, cs, c);
+		Editor editor = new Editor();
+		add(NORTH, statusPanel);
+		add(CENTER, editor);
+		add(SOUTH, sheetPanel);
+		setJMenuBar(new XLMenuBar(this, xlList, statusLabel));
+		pack();
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setVisible(true);
+	}
 
-    public int print(Graphics g, PageFormat pageFormat, int page) {
-        if (page > 0)
-            return NO_SUCH_PAGE;
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-        printAll(g2d);
-        return PAGE_EXISTS;
-    }
+	public int print(Graphics g, PageFormat pageFormat, int page) {
+		if (page > 0)
+			return NO_SUCH_PAGE;
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+		printAll(g2d);
+		return PAGE_EXISTS;
+	}
 
-    public void rename(String title) {
-        setTitle(title);
-        xlList.setChanged();
-    }
+	public void rename(String title) {
+		setTitle(title);
+		xlList.setChanged();
+	}
 
-    public static void main(String[] args) {
-        new XL(new XLList(), new XLCounter());
-    }
+	public static void main(String[] args) {
+		new XL(new XLList(), new XLCounter());
+	}
 }

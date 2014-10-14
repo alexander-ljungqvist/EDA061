@@ -4,8 +4,8 @@ import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.WEST;
 
 public class SheetPanel extends BorderPanel {
-    public SheetPanel(int rows, int columns, CurrentSlot c) {
+    public SheetPanel(int rows, int columns, CurrentSlot cs, Controller c) {
         add(WEST, new RowLabels(rows));
-        add(CENTER, new SlotLabels(rows, columns, c));
+        add(CENTER, new SlotLabels(rows, columns, cs, c));
     }
 }

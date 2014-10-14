@@ -8,7 +8,7 @@ import javax.swing.SwingConstants;
 public class SlotLabels extends GridPanel {
     private List<SlotLabel> labelList;
 
-    public SlotLabels(int rows, int cols, CurrentSlot c) {
+    public SlotLabels(int rows, int cols, CurrentSlot cs, Controller c) {
         super(rows + 1, cols);
         labelList = new ArrayList<SlotLabel>(rows * cols);
         for (char ch = 'A'; ch < 'A' + cols; ch++) {
@@ -17,13 +17,17 @@ public class SlotLabels extends GridPanel {
         }
         for (int row = 1; row <= rows; row++) {
             for (char ch = 'A'; ch < 'A' + cols; ch++) {
-                SlotLabel label = new SlotLabel(c);
+            	StringBuilder stringBuilder = new StringBuilder();
+            	stringBuilder.append(ch);
+            	stringBuilder.append(row);
+            	String name = stringBuilder.toString();
+                SlotLabel label = new SlotLabel(name ,cs, c);
                 add(label);
                 labelList.add(label);
             }
         }
         SlotLabel firstLabel = labelList.get(0);
         firstLabel.setBackground(Color.YELLOW);
-        c.set(firstLabel);
+        cs.set(firstLabel);
     }
 }
