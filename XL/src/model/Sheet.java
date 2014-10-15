@@ -7,6 +7,7 @@ import java.util.Set;
 import util.XLException;
 import expr.*;
 import gui.Controller;
+import gui.SlotLabel;
 import gui.SlotLabels;
 
 public class Sheet implements Environment {
@@ -123,5 +124,10 @@ public class Sheet implements Environment {
 	public void addSlotLabels(SlotLabels sl) {
 		this.sl = sl;
 		
+	}
+	public void updateSlotLabels(){
+		for(SlotLabel s: sl.getList()){
+			s.updateText();
+		}
 	}
 }

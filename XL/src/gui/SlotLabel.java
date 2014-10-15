@@ -70,4 +70,9 @@ public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
 		setText(s);
 
 	}
+	public void updateText() {
+		String s = sheet.getSlotValue(name);
+		setText(s);
+
+	}
 }

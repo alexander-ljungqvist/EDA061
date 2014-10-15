@@ -28,6 +28,7 @@ class LoadMenuItem extends OpenMenuItem {
 			HashMap<String, Slot> loadSheet = new HashMap<String, Slot>();
 			buffReader.load(loadSheet);
 			sheet.load(loadSheet);
+			sheet.updateSlotLabels();
 		} catch (XLException e) {
 			statusLabel.setText("Cannot load file: " + e.getMessage());
 

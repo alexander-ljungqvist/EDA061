@@ -43,4 +43,8 @@ public class SlotLabels extends GridPanel {
     		sl.setText("");
     	}
     }
+    
+    public List<SlotLabel> getList(){
+    	return labelList;
+    }
 }
