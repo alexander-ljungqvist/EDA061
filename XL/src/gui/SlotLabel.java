@@ -8,17 +8,21 @@ import java.util.Observer;
 
 import model.Sheet;
 
-public class SlotLabel extends ColoredLabel implements MouseListener,Observer {
+public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
 	CurrentSlot cs;
 	String name;
 	Controller c;
 	Sheet sheet;
-	public SlotLabel(String name, CurrentSlot cs, Controller c, Sheet sheet) {
+	StatusLabel sl;
+
+	public SlotLabel(String name, CurrentSlot cs, Controller c, Sheet sheet,
+			StatusLabel sl) {
 		super("                    ", Color.WHITE, RIGHT);
 		this.cs = cs;
 		this.c = c;
 		this.name = name;
 		this.sheet = sheet;
+		this.sl = sl;
 		addMouseListener(this);
 	}
 
@@ -46,6 +50,7 @@ public class SlotLabel extends ColoredLabel implements MouseListener,Observer {
 		setBackground(Color.YELLOW);
 		cs.set(this);
 		c.notifyObservers();
+		sl.clear();
 
 	}
 
@@ -61,9 +66,9 @@ public class SlotLabel extends ColoredLabel implements MouseListener,Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-//		c.deleteObserver(this);
-		String s = sheet.getStringSlot(name);
+		// c.deleteObserver(this);
+		String s = sheet.getSlotValue(name);
 		setText(s);
-		
+
 	}
 }

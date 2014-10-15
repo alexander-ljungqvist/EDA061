@@ -2,7 +2,6 @@ package model;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
-import java.util.Observable;
 import java.util.Set;
 
 import util.XLException;
@@ -71,7 +70,14 @@ public class Sheet implements Environment {
 		updateSheet();
 	}
 
-	public String getStringSlot(String slotKey) {
+	public String getSlotValue(String slotKey) {
+		if (getSlot(slotKey) == null) {
+			return "";
+		}
+		return String.valueOf(getSlot(slotKey).getValue(this));
+	}
+	
+	public String getSlotString(String slotKey){
 		if (getSlot(slotKey) == null) {
 			return "";
 		}

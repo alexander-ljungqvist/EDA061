@@ -31,31 +31,25 @@ public class Editor extends JTextField implements ActionListener, Observer {
 	public void actionPerformed(ActionEvent arg0) {
 		statL.clear();
 		String name = cs.getName();
-		String input = getText();
-		if (input.equals("")) {
-
+		if (getText().equals("")) {
 			try {
 				sheet.removeSlot(name);
 			} catch (XLException e) {
 				statL.setText(e.getMessage());
 			}
-
 		} else {
-
 			try {
-				sheet.putSlot(name, input);
+				sheet.putSlot(name, getText());
 			} catch (XLException e) {
 				statL.setText(e.getMessage());
 			}
-
 		}
-
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		String name = cs.getName();
-		String stringSlot = sheet.getStringSlot(name);
+		String stringSlot = sheet.getSlotString(name);
 		setText(stringSlot);
 
 	}

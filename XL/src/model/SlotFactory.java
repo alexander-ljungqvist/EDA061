@@ -13,7 +13,7 @@ public class SlotFactory {
 				try {
 					return new ExprSlot(pars.build(s));
 				} catch (Exception e) {
-					throw new XLException("Error");
+					throw new XLException("Invalid input");
 				}
 			}
 		}
