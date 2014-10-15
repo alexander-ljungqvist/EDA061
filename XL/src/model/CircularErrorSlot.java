@@ -20,4 +20,10 @@ public class CircularErrorSlot implements Slot {
 		return null;
 	}
 
+	@Override
+	public String printString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

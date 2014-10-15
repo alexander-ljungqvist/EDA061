@@ -31,4 +31,8 @@ public class ExprSlot implements Slot {
 		return null;
 	}
 
+	public String printString() {
+		return expr.toString();
+	}
+
 }

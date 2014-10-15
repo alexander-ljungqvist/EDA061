@@ -10,4 +10,6 @@ public interface Slot {
 
 	public String commentValue();
 	
+	public String printString();
+	
 }

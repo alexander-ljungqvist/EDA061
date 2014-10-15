@@ -24,4 +24,9 @@ public class CommentSlot implements Slot {
 		return s;
 	}
 
+	@Override
+	public String printString() {
+		return s;
+	}
+
 }
