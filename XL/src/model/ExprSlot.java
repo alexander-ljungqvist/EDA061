@@ -26,4 +26,9 @@ public class ExprSlot implements Slot {
 		return Double.toString(getValue(env));
 	}
 
+	@Override
+	public String commentValue() {
+		return null;
+	}
+
 }

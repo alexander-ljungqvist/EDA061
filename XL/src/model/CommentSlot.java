@@ -19,5 +19,9 @@ public class CommentSlot implements Slot {
 	public String toString(Environment e) {
 		return s;
 	}
+	
+	public String commentValue(){
+		return s;
+	}
 
 }
