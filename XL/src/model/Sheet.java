@@ -102,7 +102,7 @@ public class Sheet implements Environment {
 
 	public void clearSheet() {
 		sheet = new HashMap<String, Slot>();
-		sl.clear();
+		sl.clearAll();
 		updateSheet();
 	}
 

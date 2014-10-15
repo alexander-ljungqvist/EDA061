@@ -24,5 +24,8 @@ public class CurrentSlot  {
 	public void setWhite() {
 		currentSlot.setBackground(Color.WHITE);
 	}
+	public void clearSlot(){
+		currentSlot.setText("");
+	}
 
 }
