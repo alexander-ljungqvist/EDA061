@@ -24,6 +24,7 @@ public class Editor extends JTextField implements ActionListener, Observer {
 		this.cs = cs;
 		this.c = c;
 		addActionListener(this);
+		c.addObserver(this);
 	}
 
 	@Override

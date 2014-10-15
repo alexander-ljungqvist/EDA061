@@ -18,7 +18,7 @@ public class Sheet implements Environment {
 		this.sheet = new HashMap<String, Slot>();
 		factory = new SlotFactory();
 		this.c = c;
-		
+
 	}
 
 	public Sheet(HashMap<String, Slot> sheet) {
@@ -70,6 +70,9 @@ public class Sheet implements Environment {
 	}
 
 	public String getStringSlot(String slotKey) {
+		if (getSlot(slotKey) == null) {
+			return "";
+		}
 		return getSlot(slotKey).toString(this);
 	}
 
