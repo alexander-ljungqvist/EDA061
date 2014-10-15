@@ -8,11 +8,13 @@ import java.util.Set;
 import util.XLException;
 import expr.*;
 import gui.Controller;
+import gui.SlotLabels;
 
 public class Sheet implements Environment {
 	SlotFactory factory;
 	HashMap<String, Slot> sheet;
 	Controller c;
+	SlotLabels sl;
 
 	public Sheet(Controller c) {
 		this.sheet = new HashMap<String, Slot>();
@@ -100,6 +102,7 @@ public class Sheet implements Environment {
 
 	public void clearSheet() {
 		sheet = new HashMap<String, Slot>();
+		sl.clear();
 		updateSheet();
 	}
 
@@ -109,5 +112,10 @@ public class Sheet implements Environment {
 
 	public Set<Entry<String, Slot>> getEntries() {
 		return sheet.entrySet();
+	}
+
+	public void addSlotLabels(SlotLabels sl) {
+		this.sl = sl;
+		
 	}
 }

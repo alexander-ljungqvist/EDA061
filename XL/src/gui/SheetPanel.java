@@ -6,7 +6,9 @@ import model.Sheet;
 
 public class SheetPanel extends BorderPanel {
     public SheetPanel(int rows, int columns, CurrentSlot cs, Controller c, Sheet sheet) {
+    	SlotLabels sl = new SlotLabels(rows, columns, cs, c);
         add(WEST, new RowLabels(rows));
-        add(CENTER, new SlotLabels(rows, columns, cs, c));
+        add(CENTER, sl);
+        sheet.addSlotLabels(sl);
     }
 }
