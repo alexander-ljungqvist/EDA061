@@ -3,14 +3,19 @@ package gui;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.SwingConstants;
+
+import model.Sheet;
 
 public class SlotLabels extends GridPanel {
     private List<SlotLabel> labelList;
+    private Sheet sheet;
 
-    public SlotLabels(int rows, int cols, CurrentSlot cs, Controller c) {
+    public SlotLabels(int rows, int cols, CurrentSlot cs, Controller c, Sheet sheet) {
         super(rows + 1, cols);
         labelList = new ArrayList<SlotLabel>(rows * cols);
+        this.sheet = sheet;
         for (char ch = 'A'; ch < 'A' + cols; ch++) {
             add(new ColoredLabel(Character.toString(ch), Color.LIGHT_GRAY,
                     SwingConstants.CENTER));
@@ -21,7 +26,7 @@ public class SlotLabels extends GridPanel {
             	stringBuilder.append(ch);
             	stringBuilder.append(row);
             	String name = stringBuilder.toString();
-                SlotLabel label = new SlotLabel(name ,cs, c);
+                SlotLabel label = new SlotLabel(name ,cs, c, sheet);
                 add(label);
                 labelList.add(label);
             }
