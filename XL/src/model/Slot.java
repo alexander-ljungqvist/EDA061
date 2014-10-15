@@ -7,4 +7,6 @@ public interface Slot {
 	public double getValue(Environment e);
 
 	public String toString(Environment e);
+
+	public String toString2();
 }

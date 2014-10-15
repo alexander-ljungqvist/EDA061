@@ -15,4 +15,10 @@ public class CircularErrorSlot implements Slot {
 		throw new XLException("This is an error slot");
 	}
 
+	@Override
+	public String toString2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

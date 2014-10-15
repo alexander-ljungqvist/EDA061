@@ -19,6 +19,10 @@ public class ExprSlot implements Slot {
 		// TODO Auto-generated method stub
 		return expr.toString();
 	}
+	
+	public String toString2(){
+		return expr.toString();
+	}
 
 	
 	public String representation(Environment env) {

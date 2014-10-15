@@ -20,4 +20,10 @@ public class CommentSlot implements Slot {
 		return s;
 	}
 
+	@Override
+	public String toString2() {
+		// TODO Auto-generated method stub
+		return s;
+	}
+
 }
