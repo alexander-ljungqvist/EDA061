@@ -62,7 +62,7 @@ public class SlotLabel extends ColoredLabel implements MouseListener,Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 //		c.deleteObserver(this);
-		String s = sheet.getStringSlot(name);
+		String s = sheet.getSlotValue(name);
 		setText(s);
 		
 	}

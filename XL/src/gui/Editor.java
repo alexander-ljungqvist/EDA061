@@ -55,7 +55,7 @@ public class Editor extends JTextField implements ActionListener, Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		String name = cs.getName();
-		String stringSlot = sheet.getStringSlot(name);
+		String stringSlot = sheet.getSlotString(name);
 		setText(stringSlot);
 
 	}
