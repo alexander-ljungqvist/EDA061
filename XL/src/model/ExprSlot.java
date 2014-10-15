@@ -20,7 +20,7 @@ public class ExprSlot implements Slot {
 		return expr.toString();
 	}
 	
-	public String toString2(){
+	public String stringSavedSlot(){
 		return expr.toString();
 	}
 
@@ -28,6 +28,15 @@ public class ExprSlot implements Slot {
 	public String representation(Environment env) {
 		// TODO Auto-generated method stub
 		return Double.toString(getValue(env));
+	}
+
+	@Override
+	public String commentValue() {
+		return null;
+	}
+
+	public String printString() {
+		return expr.toString();
 	}
 
 }

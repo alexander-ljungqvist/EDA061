@@ -72,13 +72,17 @@ public class Sheet implements Environment {
 	}
 
 	public String getSlotValue(String slotKey) {
-		if (getSlot(slotKey) == null) {
+		Slot s = getSlot(slotKey);
+		if (s == null) {
 			return "";
+		} else if (getSlot(slotKey) instanceof CommentSlot) {
+			return s.commentValue();
 		}
+
 		return String.valueOf(getSlot(slotKey).getValue(this));
 	}
-	
-	public String getSlotString(String slotKey){
+
+	public String getSlotString(String slotKey) {
 		if (getSlot(slotKey) == null) {
 			return "";
 		}
@@ -123,10 +127,11 @@ public class Sheet implements Environment {
 
 	public void addSlotLabels(SlotLabels sl) {
 		this.sl = sl;
-		
+
 	}
-	public void updateSlotLabels(){
-		for(SlotLabel s: sl.getList()){
+
+	public void updateSlotLabels() {
+		for (SlotLabel s : sl.getList()) {
 			s.updateText();
 		}
 	}

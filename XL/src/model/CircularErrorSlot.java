@@ -16,8 +16,11 @@ public class CircularErrorSlot implements Slot {
 	}
 
 	@Override
-	public String toString2() {
-		// TODO Auto-generated method stub
+	public String stringSavedSlot() {
+		return null;
+	}
+
+	public String commentValue() {
 		return null;
 	}
 
