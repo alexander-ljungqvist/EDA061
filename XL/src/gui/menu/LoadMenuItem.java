@@ -14,8 +14,7 @@ import model.Slot;
 
 class LoadMenuItem extends OpenMenuItem {
 	
-	
-	private Sheet sheet;
+		private Sheet sheet;
 
 	public LoadMenuItem(XL xl, StatusLabel statusLabel, Sheet sheet) {
 		super(xl, statusLabel, "Load");

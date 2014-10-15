@@ -18,7 +18,8 @@ public class XLPrintStream extends PrintStream {
 		for (Entry<String, Slot> entry : set) {
 			print(entry.getKey());
 			print('=');
-			println(entry.getValue());
+			String s = entry.getValue().toString();
+			print(s);
 		}
 		flush();
 		close();
